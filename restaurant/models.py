@@ -10,7 +10,11 @@ class Booking(Model):
 class MenuItem(models.Model):
     Title = models.CharField(max_length=255)
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    Inventory = models.IntegerField()
+    Inventory = models.SmallIntegerField()
+    def get_item(self):
+        return f'{self.Title} : {str(self.price)}'
+    def __str__(self) -> str:
+        return f'{self.Title} : {str(self.price)}'
 
 
 
